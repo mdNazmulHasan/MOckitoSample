@@ -11,12 +11,24 @@ import org.junit.*;
  */
 
 public class MOckitoTest {
+    private Foo foo;
+
+    @Before
+    public void setupMock() {
+        foo = mock(Foo.class);
+        when(foo.greet()).thenReturn(HELLO_WORLD);
+    }
+
     @Test
     public void fooGreets() {
-        Foo foo = mock(Foo.class);
-        when(foo.greet()).thenReturn("ok");
         System.out.println("Foo greets: " + foo.greet());
-        assertEquals(foo.greet(), HELLO_WORLD);
+        assertEquals(HELLO_WORLD, foo.greet());
+    }
+
+    @Test
+    public void barGreets() {
+        Bar bar = new Bar();
+        assertEquals(HELLO_WORLD, bar.greet(foo));
     }
 
 
