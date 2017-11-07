@@ -25,11 +25,7 @@ public class MOckitoTest {
         assertEquals(HELLO_WORLD, foo.greet());
     }
 
-    @Test
-    public void barGreets() {
-        Bar bar = new Bar();
-        assertEquals(HELLO_WORLD, bar.greet(foo));
-    }
+
 
 
 }
